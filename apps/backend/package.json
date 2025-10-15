@@ -1,0 +1,47 @@
+{
+  "name": "@tap-forge/backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "TapForge GraphQL API backend with DDD architecture",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest",
+    "test:watch": "vitest watch",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist coverage"
+  },
+  "dependencies": {
+    "@fastify/cors": "^8.5.0",
+    "@fastify/helmet": "^11.1.1",
+    "@fastify/jwt": "^7.2.4",
+    "@fastify/rate-limit": "^9.1.0",
+    "@fastify/websocket": "^8.3.1",
+    "@tap-forge/shared": "workspace:*",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.10.0",
+    "fastify": "^4.25.2",
+    "graphql": "^16.8.1",
+    "graphql-subscriptions": "^2.0.0",
+    "ioredis": "^5.3.2",
+    "mercurius": "^13.3.3",
+    "pino": "^8.17.2",
+    "pino-pretty": "^10.3.1",
+    "siwe": "^2.1.4",
+    "telegraf": "^4.15.3",
+    "viem": "^2.7.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@vitest/coverage-v8": "^1.2.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.1"
+  }
+}

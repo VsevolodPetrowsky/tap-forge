@@ -1,0 +1,21 @@
+{
+  "name": "@tap-forge/wasm-modules",
+  "version": "1.0.0",
+  "private": true,
+  "description": "WASM modules for TapForge game predictions",
+  "scripts": {
+    "build": "npm run build:rust && npm run build:bindgen",
+    "build:rust": "cargo build --release --target wasm32-unknown-unknown",
+    "build:bindgen": "wasm-bindgen --out-dir pkg --target web target/wasm32-unknown-unknown/release/tap_forge_wasm.wasm",
+    "test": "cargo test",
+    "clean": "cargo clean && rimraf pkg",
+    "dev": "npm run build && npm run copy",
+    "copy": "cp -r pkg/* ../../apps/frontend/public/wasm/"
+  },
+  "files": [
+    "pkg"
+  ],
+  "devDependencies": {
+    "rimraf": "^5.0.5"
+  }
+}
