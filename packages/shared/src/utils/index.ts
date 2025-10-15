@@ -1,6 +1,7 @@
 // Utility functions for TapForge
 
 import { formatEther, parseEther } from 'viem';
+
 import type { Address } from '../types';
 
 // Address utilities
@@ -119,20 +120,21 @@ export function validateTokenId(tokenId: string | bigint): boolean {
 }
 
 // Error handling
-export function parseContractError(error: any): string {
-  if (error?.message) {
+export function parseContractError(error: unknown): string {
+  const err = error as { message?: string };
+  if (err?.message) {
     // Check for common revert reasons
-    if (error.message.includes('insufficient funds')) {
+    if (err.message.includes('insufficient funds')) {
       return 'Insufficient funds for transaction';
     }
-    if (error.message.includes('user rejected')) {
+    if (err.message.includes('user rejected')) {
       return 'Transaction rejected by user';
     }
-    if (error.message.includes('nonce')) {
+    if (err.message.includes('nonce')) {
       return 'Transaction nonce issue';
     }
     // Extract revert reason if present
-    const match = error.message.match(/reason="([^"]+)"/);
+    const match = err.message.match(/reason="([^"]+)"/);
     if (match) {
       return match[1];
     }
