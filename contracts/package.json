@@ -6,11 +6,16 @@
   "scripts": {
     "compile": "hardhat compile",
     "test": "hardhat test",
+    "check-env": "ts-node scripts/check-env.ts",
     "deploy": "hardhat run scripts/deploy.ts",
     "deploy:sepolia": "hardhat run scripts/deploy.ts --network sepolia",
     "verify": "hardhat verify",
     "clean": "hardhat clean && rimraf typechain-types",
-    "lint": "solhint 'contracts/**/*.sol'",
+    "lint": "pnpm run lint:sol && pnpm run lint:ts",
+    "lint:sol": "solhint 'contracts/**/*.sol'",
+    "lint:ts": "eslint . --ext .ts,.js --max-warnings 0",
+    "lint:fix": "eslint . --ext .ts,.js --fix",
+    "type-check": "tsc --noEmit",
     "format": "prettier --write \"**/*.{js,ts,json,sol}\"",
     "slither": "slither .",
     "coverage": "hardhat coverage"

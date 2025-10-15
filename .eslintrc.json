@@ -65,8 +65,16 @@
   },
   "settings": {
     "import/resolver": {
-      "typescript": true,
-      "node": true
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": ["./tsconfig.json", "./contracts/tsconfig.json", "./packages/*/tsconfig.json"]
+      },
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     }
   }
 }
