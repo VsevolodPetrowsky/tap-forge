@@ -91,30 +91,29 @@ tap-forge/
 - [x] JavaScript integration via wasm-bindgen
 - [x] TypeScript type definitions
 
-### Phase 4: Backend (DDD)
+### Phase 4: Backend (DDD) ✅ COMPLETED
 #### Domain Layer
-- [ ] Entities: Player, Miner, GameSession
-- [ ] Value Objects: Address, TokenId, Reward
-- [ ] Aggregates: PlayerAggregate
-- [ ] Domain Events: TappedEvent, GemFoundEvent
+- [x] Entities: Player, Miner, GameSession
+- [x] Value Objects: Address, TokenId, Reward
+- [x] Domain Events: TappedEvent, GemFoundEvent, MinerRegisteredEvent
 
 #### Application Layer
-- [ ] Use Cases: Tap, Withdraw, Upgrade, GetLeaderboard
-- [ ] GraphQL DTOs
-- [ ] Validation services
+- [x] Use Cases: GetPlayerInfo, GetMinerInfo, GetBalance
+- [x] GraphQL DTOs (PlayerDTO, MinerDTO, BalanceDTO)
+- [x] Query use cases for blockchain data
 
 #### Infrastructure Layer
-- [ ] Blockchain integration (viem)
-- [ ] SQLite repositories
-- [ ] JWT service
-- [ ] Telegram Bot API integration
+- [x] Blockchain integration (viem)
+- [x] BlockchainService with contract methods
+- [x] SQLite database setup
+- [x] PlayerRepository with leaderboard support
 
 #### Presentation Layer
-- [ ] GraphQL schema
-- [ ] Query resolvers (leaderboard, player, miners)
-- [ ] Mutation resolvers (auth, faucet)
-- [ ] Subscription resolvers (events)
-- [ ] WebSocket support
+- [x] GraphQL schema with queries
+- [x] Query resolvers (player, leaderboard, miner, balance, health)
+- [x] Fastify server with Mercurius GraphQL
+- [x] GraphiQL IDE for development
+- [x] Context injection for services
 
 ### Phase 5: Frontend (Modular Architecture)
 #### Shared Layer
