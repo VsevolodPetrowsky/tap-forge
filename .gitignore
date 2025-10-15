@@ -32,6 +32,8 @@ coverage
 *.swo
 *~
 .DS_Store
+.claude/
+.husky/
 
 # Logs
 logs
@@ -65,6 +67,11 @@ wasm-pack.log
 # Hardhat
 deployments/localhost/
 deployments/hardhat/
+gas-report.txt
+coverage.json
+
+# Hardhat verification temp files
+*-args.js
 
 # Database
 *.sqlite
